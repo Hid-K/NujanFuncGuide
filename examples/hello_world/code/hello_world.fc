@@ -1,0 +1,15 @@
+#include "stdlib.fc";
+
+slice hello_world_slice() method_id
+{
+    return "Hello world";
+}
+
+int hello_world_int() method_id
+{
+    return "Hello world"u;
+}
+
+() recv_internal(int my_balance, int msg_value, cell in_msg_full, slice in_msg_body) impure {
+
+}
