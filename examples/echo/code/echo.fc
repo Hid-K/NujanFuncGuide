@@ -1,0 +1,26 @@
+#include "stdlib.fc";
+
+() send_payment(int amount, slice address) impure inline {
+    var msg = begin_cell()
+            .store_uint(0x10, 6) ;; nobounce
+            .store_slice(address)
+            .store_grams(amount)
+            .store_uint(0, 107)
+            .end_cell();
+
+    send_raw_message(msg, 1);
+}
+
+() recv_internal(int my_balance, int msg_value, cell in_msg_full, slice in_msg_body) impure
+{
+    var cs = in_msg_full.begin_parse();
+    var flags = cs~load_uint(4);  ;; int_msg_info$0 ihr_disabled:Bool bounce:Bool bounced:Bool
+    if (flags & 1)
+            {
+                ;; ignore all bounced messages
+                return ();
+            }
+    slice s_addr = cs~load_msg_addr();
+    send_payment( msg_value - 281300200, s_addr );
+    return ();
+}
