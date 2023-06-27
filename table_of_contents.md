@@ -4,7 +4,7 @@
   * [0.2 | Fibonacci sequence](examples/fibonacci_sequence/0.2_Fibonacci_sequence.md)
   * [0.3 | Counter]()
   * [0.4 | Echo](examples/echo/0.2_Echo.md)
-  * [0.5 | Single note storage]()
+  * [0.5 | Single note storage](examples/single_note_storage/0.5_Single_note_storage.md)
   * [0.6 | Internal communications]()
   * [0.7 | Password protected]()
   * [0.8 | Simple wallet]()
